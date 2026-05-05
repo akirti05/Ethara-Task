@@ -1,6 +1,6 @@
 const prisma = require('../../config/database');
 
-const create = async ({ title, description, projectId, userId }) => {
+const create = async ({ title, description, projectId }, userId) => {
   return prisma.task.create({
     data: {
       title,

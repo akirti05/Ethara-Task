@@ -3,21 +3,19 @@ const { success, paginated } = require('../../utils/response');
 
 // CREATE TASK
 const create = async (req, res, next) => {
-  try {
-    const task = await taskService.create(
-      {
-        title: req.body.title,
-        description: req.body.description,
-        projectId: req.params.projectId // 🔥 important fix
-      },
-      req.user.id
-    );
-
-    success(res, task, 201);
-  } catch (err) {
-    next(err);
-  }
-};
+    try {
+      const { title, description, projectId } = req.body;
+  
+      const task = await taskService.create(
+        { title, description, projectId },
+        req.user.id
+      );
+  
+      success(res, task, 201);
+    } catch (err) {
+      next(err);
+    }
+  };
 
 // GET TASKS (by project)
 const list = async (req, res, next) => {
