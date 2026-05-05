@@ -5,14 +5,8 @@ const create = async ({ title, description, projectId }, userId) => {
     data: {
       title,
       description,
-      creatorId: userId,
-
-      // ✅ THIS IS THE FIX
-      project: {
-        connect: {
-          id: projectId
-        }
-      }
+      projectId: projectId,  
+      creatorId: userId
     }
   });
 };
