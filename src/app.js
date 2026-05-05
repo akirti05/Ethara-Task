@@ -26,8 +26,7 @@ app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
 
 // nested tasks
-app.use('/api/projects/:projectId/tasks', taskRoutes);
-
+app.use('/api/tasks', taskRoutes);
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 4000;
