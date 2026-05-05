@@ -3,6 +3,7 @@ const Joi = require('joi');
 const create = Joi.object({
   title: Joi.string().required(),
   description: Joi.string().allow('', null),
+  projectId: Joi.string().required()   // ✅ ADD THIS
 });
 
 const update = Joi.object({
